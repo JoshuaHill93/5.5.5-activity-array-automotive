@@ -16,9 +16,38 @@ class Vehicle extends VehicleModule{
         this.maximumSpeed = 160;
         this.fuel = 10;
         this.scheduleService = false;
-
-        
+    
     }
+    loadPassenger(num) {
+        if (this.passenger < this.maxPassengers) {
+            if ((num + this.passenger) <= this.maxPassengers) {
+                this.passenger = num;
+                return this.passenger;               
+            } else {
+                console.log(this.model + " " + this.make + " not have enough space to take all passengers.");
+
+            }
+        } else {
+            console.log(this.model + " " + this.make + " is full")
+         }
+      }  
+      
+      start() {
+        if (this.fuel > 0) {
+            return this.started = true;
+            console.log("engine started...!!!");
+        } else {
+            return this.started = false;
+            console.log("engine cannot start...");
+        }
+    }
+ 
+    scheduleService(mileage){
+        if(this.mileage > 3000 ){
+           return this.scheduleService = true; 
+        }
+    }
+
 
 }
 
